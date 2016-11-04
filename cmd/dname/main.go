@@ -12,9 +12,9 @@ func main() {
 	app := cli.NewApp()
 
 	app.Version = "0.0.1"
-	app.Name = "docker-names"
+	app.Name = "dname"
 	app.Usage = "generate names like docker does when it creates a new container"
-	app.UsageText = "docker-names [command] [arguments...]"
+	app.UsageText = "dname [command] [arguments...]"
 	app.Flags = []cli.Flag{
 		cli.IntFlag{
 			Name:  "number, n",
