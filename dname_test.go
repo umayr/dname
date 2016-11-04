@@ -1,23 +1,23 @@
-package docker_names_test
+package dname_test
 
 import (
-	"testing"
 	"strings"
-	
-	"github.com/umayr/docker-names"
+	"testing"
+
+	"github.com/umayr/dname"
 )
 
 func TestGenerateSingle(t *testing.T) {
-	n := docker_names.Generate()
+	n := dname.Generate()
 	if n == "" {
 		t.Error("generated name shouldn't be empty")
 	}
 
-	if !strings.Contains(n, "-") {
-		t.Error("generated name should consist of an hypen")
+	if !strings.Contains(n, "_") {
+		t.Error("generated name should consist of an underscore")
 	}
 
-	s := strings.Split(n, "-")
+	s := strings.Split(n, "_")
 
 	if s[0] == "" || s[1] == "" {
 		t.Error("generated name should consist of both parts, i.e. adjective and subject")
@@ -25,17 +25,17 @@ func TestGenerateSingle(t *testing.T) {
 }
 
 func TestGenerateMultiple(t *testing.T) {
-	for i := 0; i < 100; i++ {
-		n := docker_names.Generate()
+	for i := 0; i < 1000; i++ {
+		n := dname.Generate()
 		if n == "" {
 			t.Error("generated name shouldn't be empty")
 		}
 
-		if !strings.Contains(n, "-") {
-			t.Error("generated name should consist of an hypen")
+		if !strings.Contains(n, "_") {
+			t.Error("generated name should consist of an underscore")
 		}
 
-		s := strings.Split(n, "-")
+		s := strings.Split(n, "_")
 
 		if s[0] == "" || s[1] == "" {
 			t.Error("generated name should consist of both parts, i.e. adjective and subject")

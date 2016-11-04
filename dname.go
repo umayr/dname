@@ -1,9 +1,9 @@
-package docker_names
+package dname
 
 import (
-	"time"
-	"math/rand"
 	"fmt"
+	"math/rand"
+	"time"
 )
 
 var (
@@ -503,11 +503,9 @@ var (
 	}
 )
 
-func randInt(min int, max int) (n int) {
+// Generate creates a new name similar to what docker generates for new containers
+// For docker's implementation: https://github.com/docker/docker/blob/master/pkg/namesgenerator/names-generator.go
+func Generate() string {
 	rand.Seed(time.Now().UTC().UnixNano())
-	return min + rand.Intn(max - min)
-}
-
-func Generate() (name string) {
-	return fmt.Sprintf("%s-%s", left[randInt(0, len(left))], right[randInt(0, len(right))])
+	return fmt.Sprintf("%s_%s", left[rand.Intn(len(left))], right[rand.Intn(len(right))])
 }
