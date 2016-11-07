@@ -3,7 +3,7 @@
 
 ## Install
 ```
-λ go get -u github.com/umayr/dname
+λ go get -u github.com/umayr/dname/...
 ```
 
 Or, you can download pre-built binaries from [here](https://github.com/umayr/dname/releases).
